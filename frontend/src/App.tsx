@@ -3,6 +3,9 @@ import Login from './features/auth/login/login';
 import Home from './features/home/homepage';
 import LoginGuard from './shared/guards/loginGuard';
 
+import AuthGuard from './shared/guards/authGuard';
+import Profile from './profile';
+
 function App() {
   return (
     <Routes>
@@ -13,7 +16,17 @@ function App() {
         </LoginGuard>
       } />
       <Route path='/home' element={<Home />} />
-    </Routes>
+
+      {/* Change profile route to accept user ID */}
+  <Route
+    path='/profile/:id'
+    element={
+      <AuthGuard>
+        <Profile />
+      </AuthGuard>
+    }
+  />
+</Routes>
   );
 }
 

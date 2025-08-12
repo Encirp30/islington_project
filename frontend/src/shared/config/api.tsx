@@ -11,3 +11,7 @@ export const registerApi = (data: { email: string; username: string; password: s
 export const getUserListApi = () => {
     return axiosInstance.get('/user/list');
 };
+
+export const userSearchApi = (searchTerm: string) => {
+    return axiosInstance.get(`auth/search?q=${searchTerm}`);
+};

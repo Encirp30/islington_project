@@ -61,3 +61,37 @@ export async function searchUsers(req, res) {
         res.status(500).json({ message: 'Search failed', error: e.message });
     }
 }
+
+// profile
+export const getProfile = async (req, res) => {
+    try {
+        const userId = req.user.id; // set in authMiddleware
+        const user = await User.findById(userId).select('-password');
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: "Server error" });
+    }
+};
+
+// Get user by ID for profile viewing
+export async function getUserById(req, res) {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId).select('-password');
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Optionally add random dummy data here, if not stored in DB
+    const extendedUser = {
+      ...user.toObject(),
+      phone: user.phone || "123-456-7890",
+      address: user.address || "123, Sample Street",
+    };
+
+    res.status(200).json(extendedUser);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
