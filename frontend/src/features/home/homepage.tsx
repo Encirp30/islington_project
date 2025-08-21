@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./homepage.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { userSearchApi } from "../../shared/config/api";
 
 interface IUser {
@@ -19,6 +19,13 @@ export default function Home() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    navigate("/");
+  };
+
+  const handleLogout = () => {
+    // Clear any stored authentication data
+    localStorage.removeItem("token");
+    // Redirect to login page
     navigate("/");
   };
 
@@ -48,6 +55,7 @@ export default function Home() {
           className="search-bar"
         />
         <button onClick={handleLogin}>Login</button>
+        <button onClick={handleLogout} className="logout-btn">Logout</button>
       </div>
 
       <div className="home-container">

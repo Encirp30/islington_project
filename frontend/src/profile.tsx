@@ -81,7 +81,7 @@ export default function Profile() {
                         </div>
                         <div className="info-item">
                             <div className="info-label">Email:</div>
-                            <div className="info-value">{user.email || "askreitmanov@gmail.com"}</div>
+                            <div className="info-value">{user.email || "Santosh07@gmail.com"}</div>
                         </div>
                         <div className="info-item">
                             <div className="info-label">Phone:</div>
@@ -107,15 +107,15 @@ export default function Profile() {
                     
                     <div className="stats-container">
                         <div className="stat-item">
-                            <div className="stat-value">42</div>
+                            <div className="stat-value">15</div>
                             <div className="stat-label">Projects</div>
                         </div>
                         <div className="stat-item">
-                            <div className="stat-value">128</div>
+                            <div className="stat-value">77</div>
                             <div className="stat-label">Connections</div>
                         </div>
                         <div className="stat-item">
-                            <div className="stat-value">12</div>
+                            <div className="stat-value">5</div>
                             <div className="stat-label">Years Experience</div>
                         </div>
                     </div>

@@ -23,9 +23,9 @@ export default function Register() {
     });
 
     const validateUsername = (username: string) => {
-        const regex = /^[a-zA-Z0-9]{1,10}$/;
+        const regex = /^[a-zA-Z0-9]{1,15}$/;
         if (!regex.test(username)) {
-            return 'Username must be 1-10 alphanumeric characters';
+            return 'Username must be 1-15 alphanumeric characters';
         }
         return '';
     };
