@@ -60,7 +60,7 @@ export default function Home() {
               style={{ cursor: "pointer" }}
             >
               <h3>{user.username}</h3>
-              <p>{user.email || "Email not available"}</p>
+              <p>{user.email || "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."}</p>
             </div>
           ))}
         </div>

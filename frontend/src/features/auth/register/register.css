@@ -1,4 +1,4 @@
-/* ===== APPLE-INSPIRED DARK LOGIN THEME ===== */
+/* ===== APPLE-INSPIRED DARK REGISTER THEME ===== */
 :root {
   --bg-dark: #1a1a1a;
   --bg-darker: #111;
@@ -9,13 +9,11 @@
   --text-main: #f5f5f7;
   --text-secondary: #a1a1a6;
   --glass-bg: rgba(28, 28, 30, 0.72);
-  --success-green: #30d158;
   --error-red: #ff453a;
   --transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-/* ===== BASE STYLES ===== */
-.login-wrapper {
+.register-wrapper {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -23,12 +21,12 @@
   padding: 2rem;
   background-color: var(--bg-dark);
   background-image: 
-    radial-gradient(circle at 75% 25%, rgba(41, 151, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(41, 151, 255, 0.08) 0%, transparent 50%),
     linear-gradient(to bottom, var(--bg-dark), var(--bg-darker));
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
 }
 
-.login-form {
+.register-form {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -42,8 +40,8 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
-.login-form h2 {
-  margin-bottom: 2.5rem;
+.register-form h2 {
+  margin-bottom: 2rem;
   color: var(--text-main);
   font-size: 2rem;
   font-weight: 500;
@@ -51,13 +49,13 @@
   letter-spacing: -0.5px;
 }
 
-/* ===== INPUT GROUP WITH ERROR HANDLING ===== */
+/* ===== INPUT GROUPS WITH VALIDATION ===== */
 .input-group {
   position: relative;
-  margin-bottom: 2.25rem;
+  margin-bottom: 2rem;
 }
 
-.login-form input {
+.register-form input {
   width: 100%;
   padding: 1rem;
   background-color: var(--bg-input);
@@ -68,19 +66,19 @@
   transition: var(--transition);
 }
 
-.login-form input:focus {
+.register-form input:focus {
   outline: none;
   border-color: var(--primary-blue);
   box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.15);
 }
 
-.login-form input::placeholder {
+.register-form input::placeholder {
   color: var(--text-secondary);
   opacity: 0.8;
 }
 
 /* ===== ERROR STATES ===== */
-.login-form input.error {
+.register-form input.error {
   border-color: var(--error-red);
   animation: inputErrorShake 0.4s ease;
 }
@@ -96,7 +94,7 @@
   transition: var(--transition);
 }
 
-.login-form input.error + .error-message {
+.register-form input.error + .error-message {
   opacity: 1;
   transform: translateY(0);
 }
@@ -108,7 +106,7 @@
 }
 
 /* ===== BUTTON STYLES ===== */
-.login-form button {
+.register-form button {
   width: 108%;
   padding: 1rem;
   background-color: var(--primary-blue);
@@ -124,22 +122,22 @@
   overflow: hidden;
 }
 
-.login-form button:hover:not(:disabled) {
+.register-form button:hover:not(:disabled) {
   background-color: var(--primary-hover);
   transform: translateY(-1px);
 }
 
-.login-form button:active:not(:disabled) {
+.register-form button:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.login-form button:disabled {
+.register-form button:disabled {
   opacity: 0.8;
   cursor: not-allowed;
 }
 
 /* ===== LOADING ANIMATION ===== */
-.login-form button:disabled::after {
+.register-form button:disabled::after {
   content: "";
   position: absolute;
   top: 0;
@@ -159,21 +157,21 @@
   100% { left: 100%; }
 }
 
-/* ===== SIGNUP SECTION ===== */
-.signup-section {
+/* ===== LOGIN SECTION ===== */
+.login-section {
   text-align: center;
   margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-color);
 }
 
-.signup-text {
+.login-text {
   color: var(--text-secondary);
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 
-.register-btn {
+.login-btn {
   width: 108%;
   padding: 1rem;
   background: transparent;
@@ -186,45 +184,26 @@
   transition: var(--transition);
 }
 
-.register-btn:hover {
+.login-btn:hover {
   background: rgba(41, 151, 255, 0.1) !important;
-}
-
-/* ===== TOAST NOTIFICATION STYLES ===== */
-.Toastify__toast {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-  border-radius: 12px !important;
-  background: var(--bg-input) !important;
-  color: var(--text-main) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-  border-left: 4px solid var(--error-red) !important;
-}
-
-.Toastify__toast-body {
-  padding: 0 12px !important;
-}
-
-.Toastify__close-button {
-  color: var(--text-secondary) !important;
 }
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 480px) {
-  .login-wrapper {
+  .register-wrapper {
     padding: 1.5rem;
   }
   
-  .login-form {
+  .register-form {
     padding: 2.5rem 1.5rem;
     border-radius: 14px;
   }
   
-  .login-form h2 {
+  .register-form h2 {
     font-size: 1.7rem;
-    margin-bottom: 2rem;
   }
   
   .input-group {
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
   }
 }

@@ -14,7 +14,7 @@ interface IUser {
 
 export default function Profile() {
     const [user, setUser] = useState<IUser | null>(null);
-    const { id } = useParams(); // user id from URL
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -38,12 +38,89 @@ export default function Profile() {
 
     return (
         <div className="profile-container">
-            <h1>User Profile</h1>
-            <p><strong>Username:</strong> {user.username}</p>
-            <p><strong>Email:</strong> {user.email || "N/A"}</p>
-            <p><strong>Phone:</strong> {user.phone || "N/A"}</p>
-            <p><strong>Address:</strong> {user.address || "N/A"}</p>
-            <p><strong>Joined:</strong> {new Date(user.createdAt || "").toLocaleDateString()}</p>
+            <h1>PROFILE</h1>
+            
+            <div className="profile-content">
+                <div className="avatar-section">
+                    <div className="avatar">
+                        <span>{user.username?.slice(0, 2).toUpperCase() || 'AK'}</span>
+                    </div>
+                    
+                    <div className="upload-section">
+                        <h3>Connect with me</h3>
+                        <div className="social-links">
+                            <a href="#" className="social-link facebook">
+                                <i className="fab fa-facebook-f"></i>
+                                Facebook
+                            </a>
+                            <a href="#" className="social-link linkedin">
+                                <i className="fab fa-linkedin-in"></i>
+                                LinkedIn
+                            </a>
+                            <a href="#" className="social-link github">
+                                <i className="fab fa-github"></i>
+                                GitHub
+                            </a>
+                            <a href="#" className="social-link twitter">
+                                <i className="fab fa-twitter"></i>
+                                Twitter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="info-section">
+                    <div className="info-card">
+                        <h3>
+                            <i className="fas fa-user"></i>
+                            Personal Information
+                        </h3>
+                        <div className="info-item">
+                            <div className="info-label">Username:</div>
+                            <div className="info-value">{user.username}</div>
+                        </div>
+                        <div className="info-item">
+                            <div className="info-label">Email:</div>
+                            <div className="info-value">{user.email || "askreitmanov@gmail.com"}</div>
+                        </div>
+                        <div className="info-item">
+                            <div className="info-label">Phone:</div>
+                            <div className="info-value">{user.phone || "+1 (123) 456-7890"}</div>
+                        </div>
+                        <div className="info-item">
+                            <div className="info-label">Address:</div>
+                            <div className="info-value">{user.address || "123 Main St, Sofia, Bulgaria"}</div>
+                        </div>
+                    </div>
+                    
+                    <div className="about-section">
+                        <h3>
+                            <i className="fas fa-info-circle"></i>
+                            About Me
+                        </h3>
+                        <div className="about-text">
+                            I am {user.username}.
+                            I'm passionate about web development and creating user-friendly interfaces.
+                            I specialize in React development and UI/UX design.
+                        </div>
+                    </div>
+                    
+                    <div className="stats-container">
+                        <div className="stat-item">
+                            <div className="stat-value">42</div>
+                            <div className="stat-label">Projects</div>
+                        </div>
+                        <div className="stat-item">
+                            <div className="stat-value">128</div>
+                            <div className="stat-label">Connections</div>
+                        </div>
+                        <div className="stat-item">
+                            <div className="stat-value">12</div>
+                            <div className="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
